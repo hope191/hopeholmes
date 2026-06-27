@@ -9,6 +9,240 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="main.css" />
+    <style>
+        /* ============================================
+           PRICING PAGE ENHANCED STYLES
+           ============================================ */
+        
+        .pricing-subtitle {
+            text-align: center;
+            color: var(--gray);
+            max-width: 600px;
+            margin: -1rem auto 3rem;
+            font-size: 1.05rem;
+        }
+        
+        /* Packages Section */
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .package-card {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 2.5rem 2rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .package-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(201, 168, 76, 0.1);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .package-card.featured {
+            border-color: rgba(201, 168, 76, 0.2);
+            background: rgba(201, 168, 76, 0.03);
+            position: relative;
+        }
+        
+        .package-card.featured::before {
+            content: '★ Most Popular';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gold);
+            color: var(--navy);
+            padding: 0.3rem 1.5rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        
+        .package-card .package-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 0.3rem;
+        }
+        
+        .package-card .package-price {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: var(--gold);
+            margin: 0.5rem 0;
+        }
+        
+        .package-card .package-price span {
+            font-size: 1rem;
+            color: var(--gray);
+            font-weight: 400;
+        }
+        
+        .package-card .package-desc {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .package-card ul {
+            list-style: none;
+            text-align: left;
+            margin: 1.5rem 0 2rem;
+        }
+        
+        .package-card ul li {
+            padding: 0.5rem 0;
+            color: var(--gray);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        
+        .package-card ul li i {
+            color: var(--gold);
+            font-size: 0.8rem;
+        }
+        
+        .package-card .btn {
+            width: 100%;
+        }
+        
+        /* Individual Services Section */
+        .services-pricing {
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        
+        .services-pricing .section-label {
+            text-align: center;
+            color: var(--gold);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .services-pricing .section-desc {
+            text-align: center;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+        }
+        
+        .service-price-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .service-price-item {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 1.5rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .service-price-item:hover {
+            border-color: rgba(201, 168, 76, 0.1);
+            background: rgba(201, 168, 76, 0.02);
+            transform: translateY(-4px);
+        }
+        
+        .service-price-item .service-icon {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .service-price-item .service-name {
+            color: var(--white);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+        
+        .service-price-item .service-price {
+            color: var(--gold);
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+        
+        .service-price-item .service-price span {
+            font-size: 0.85rem;
+            color: var(--gray);
+            font-weight: 400;
+        }
+        
+        .service-price-item .service-desc {
+            color: var(--gray);
+            font-size: 0.8rem;
+            margin-top: 0.3rem;
+        }
+        
+        /* FAQ Section */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .faq-item {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 1.5rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        
+        .faq-item h4 {
+            color: var(--gold);
+            margin-bottom: 0.3rem;
+        }
+        
+        .faq-item p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .packages-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .service-price-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+            .service-price-grid {
+                grid-template-columns: 1fr;
+            }
+            .package-card.featured {
+                order: -1;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -40,10 +274,14 @@
                 <h2>Choose Your <span class="gold">Package</span></h2>
                 <p>Flexible plans for every stage of your author journey.</p>
             </div>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3>Starter</h3>
-                    <div class="price">$299 <span>/mo</span></div>
+
+            <!-- ===== PACKAGES SECTION ===== -->
+            <div class="packages-grid">
+                <!-- Starter Package -->
+                <div class="package-card">
+                    <div class="package-name">Starter</div>
+                    <div class="package-price">$299 <span>/mo</span></div>
+                    <div class="package-desc">Perfect for new authors getting started</div>
                     <ul>
                         <li><i class="fas fa-check"></i> Social Setup &amp; Branding</li>
                         <li><i class="fas fa-check"></i> 10 Posts / Month</li>
@@ -52,9 +290,12 @@
                     </ul>
                     <a href="contact.html" class="btn btn-outline">Get Started</a>
                 </div>
-                <div class="pricing-card featured">
-                    <h3>Growth</h3>
-                    <div class="price">$599 <span>/mo</span></div>
+
+                <!-- Growth Package (Featured) -->
+                <div class="package-card featured">
+                    <div class="package-name">Growth</div>
+                    <div class="package-price">$599 <span>/mo</span></div>
+                    <div class="package-desc">Ideal for growing author brands</div>
                     <ul>
                         <li><i class="fas fa-check"></i> Everything in Starter</li>
                         <li><i class="fas fa-check"></i> 25 Posts / Month</li>
@@ -64,9 +305,12 @@
                     </ul>
                     <a href="contact.html" class="btn btn-primary">Get Started</a>
                 </div>
-                <div class="pricing-card">
-                    <h3>Premium</h3>
-                    <div class="price">$999 <span>/mo</span></div>
+
+                <!-- Premium Package -->
+                <div class="package-card">
+                    <div class="package-name">Premium</div>
+                    <div class="package-price">$999 <span>/mo</span></div>
+                    <div class="package-desc">Full-service management for established authors</div>
                     <ul>
                         <li><i class="fas fa-check"></i> Everything in Growth</li>
                         <li><i class="fas fa-check"></i> 50+ Posts / Month</li>
@@ -78,37 +322,96 @@
                 </div>
             </div>
 
-            <!-- FAQ Section -->
-            <div style="margin-top: 4rem; background: var(--navy-light); padding: 3rem; border-radius: 24px;">
-                <h3 style="text-align: center; color: var(--gold); font-size: 1.8rem; margin-bottom: 2rem;">Frequently Asked Questions</h3>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
-                    <div>
-                        <h4 style="color: var(--gold);">What platforms do you manage?</h4>
-                        <p style="color: var(--gray);">Instagram, Facebook, Twitter, LinkedIn, TikTok, and Pinterest. We can also customize based on your specific needs.</p>
+            <!-- ===== INDIVIDUAL SERVICES PRICING ===== -->
+            <div class="services-pricing">
+                <div class="section-label">Individual Services</div>
+                <div class="section-desc">Choose individual services to build a custom package that fits your needs.</div>
+
+                <div class="service-price-grid">
+                    <!-- Service 1: Social Setup -->
+                    <div class="service-price-item">
+                        <span class="service-icon"><i class="fas fa-user-plus"></i></span>
+                        <div class="service-name">Social Setup</div>
+                        <div class="service-price">$99 <span>one-time</span></div>
+                        <div class="service-desc">Account creation, profile optimization &amp; branding</div>
                     </div>
-                    <div>
-                        <h4 style="color: var(--gold);">Can I upgrade my plan later?</h4>
-                        <p style="color: var(--gray);">Absolutely! You can upgrade or downgrade your plan at any time with 30 days notice.</p>
+
+                    <!-- Service 2: Social Management -->
+                    <div class="service-price-item">
+                        <span class="service-icon"><i class="fas fa-calendar-check"></i></span>
+                        <div class="service-name">Social Management</div>
+                        <div class="service-price">$299 <span>/mo</span></div>
+                        <div class="service-desc">Daily posting, scheduling &amp; engagement</div>
                     </div>
-                    <div>
-                        <h4 style="color: var(--gold);">Is there a contract?</h4>
-                        <p style="color: var(--gray);">We offer month-to-month contracts with no long-term commitment. You're never locked in.</p>
+
+                    <!-- Service 3: Content Creation -->
+                    <div class="service-price-item">
+                        <span class="service-icon"><i class="fas fa-pen-fancy"></i></span>
+                        <div class="service-name">Content Creation</div>
+                        <div class="service-price">$199 <span>/mo</span></div>
+                        <div class="service-desc">Captions, long-form content &amp; copywriting</div>
                     </div>
-                    <div>
-                        <h4 style="color: var(--gold);">Do you offer a free consultation?</h4>
-                        <p style="color: var(--gray);">Yes! Every new client receives a free 30-minute consultation to discuss your goals and strategy.</p>
+
+                    <!-- Service 4: Graphic Design -->
+                    <div class="service-price-item">
+                        <span class="service-icon"><i class="fas fa-paint-brush"></i></span>
+                        <div class="service-name">Graphic Design</div>
+                        <div class="service-price">$249 <span>/mo</span></div>
+                        <div class="service-desc">Posts, carousels, story graphics &amp; more</div>
                     </div>
-                    <div>
-                        <h4 style="color: var(--gold);">How do you measure success?</h4>
-                        <p style="color: var(--gray);">We track engagement, follower growth, reach, conversions, and other key metrics that matter for your brand.</p>
+
+                    <!-- Service 5: Author Branding -->
+                    <div class="service-price-item">
+                        <span class="service-icon"><i class="fas fa-user-tie"></i></span>
+                        <div class="service-name">Author Branding</div>
+                        <div class="service-price">$349 <span>/mo</span></div>
+                        <div class="service-desc">Platform development &amp; book promotion</div>
                     </div>
-                    <div>
-                        <h4 style="color: var(--gold);">Do you write the content?</h4>
-                        <p style="color: var(--gray);">Yes! We create all content including captions, graphics, and videos tailored to your brand voice.</p>
+
+                    <!-- Service 6: Strategy & Analytics -->
+                    <div class="service-price-item">
+                        <span class="service-icon"><i class="fas fa-chart-line"></i></span>
+                        <div class="service-name">Strategy &amp; Analytics</div>
+                        <div class="service-price">$199 <span>/mo</span></div>
+                        <div class="service-desc">Growth planning, content strategy &amp; tracking</div>
                     </div>
                 </div>
             </div>
 
+            <!-- ===== FAQ SECTION ===== -->
+            <div style="margin-top: 4rem; background: var(--navy-light); padding: 3rem; border-radius: 24px;">
+                <h3 style="text-align: center; color: var(--gold); font-size: 1.8rem; margin-bottom: 0.5rem;">Frequently Asked Questions</h3>
+                <p style="text-align: center; color: var(--gray); max-width: 500px; margin: 0 auto 2rem;">Everything you need to know about our pricing.</p>
+                
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h4>What platforms do you manage?</h4>
+                        <p>Instagram, Facebook, Twitter, LinkedIn, TikTok, and Pinterest. We can also customize based on your specific needs.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Can I upgrade my plan later?</h4>
+                        <p>Absolutely! You can upgrade or downgrade your plan at any time with 30 days notice.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Is there a contract?</h4>
+                        <p>We offer month-to-month contracts with no long-term commitment. You're never locked in.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Do you offer a free consultation?</h4>
+                        <p>Yes! Every new client receives a free 30-minute consultation to discuss your goals and strategy.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>How do you measure success?</h4>
+                        <p>We track engagement, follower growth, reach, conversions, and other key metrics that matter for your brand.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Do you write the content?</h4>
+                        <p>Yes! We create all content including captions, graphics, and videos tailored to your brand voice.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== CTA ===== -->
             <div style="text-align: center; margin-top: 2.5rem;">
                 <a href="contact.html" class="btn btn-primary">Book a Free Consultation</a>
             </div>
