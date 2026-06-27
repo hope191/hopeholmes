@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="img/Hope Holmes.png" />
+    <title>Hope Holmes · About</title>
+    <meta name="description" content="Learn about Hope Holmes, a full-service Social Media Expert helping authors and brands grow online." />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="main.css" />
+    <style>
+        /* ============================================
+           ABOUT PAGE ENHANCED STYLES
+           ============================================ */
+        
+        .about-story {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin: 3rem 0;
+        }
+        
+        .about-story-image {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: var(--navy-light);
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(201, 168, 76, 0.08);
+        }
+        
+        .about-story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .about-story-content h3 {
+            color: var(--gold);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .about-story-content p {
+            color: var(--gray);
+            line-height: 1.9;
+            margin-bottom: 1.2rem;
+        }
+        
+        /* Mission Vision Values Grid */
+        .mv-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .mv-card {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 2.5rem 2rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .mv-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(201, 168, 76, 0.15);
+            background: rgba(201, 168, 76, 0.03);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .mv-card .mv-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: var(--gold-glow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.2rem;
+            font-size: 2rem;
+            color: var(--gold);
+        }
+        
+        .mv-card h3 {
+            color: var(--gold);
+            font-size: 1.3rem;
+            margin-bottom: 0.6rem;
+        }
+        
+        .mv-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        /* Core Values Grid */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .value-item {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 1.5rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .value-item:hover {
+            border-color: rgba(201, 168, 76, 0.15);
+            background: rgba(201, 168, 76, 0.03);
+            transform: translateY(-4px);
+        }
+        
+        .value-item i {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .value-item h4 {
+            color: var(--white);
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .value-item p {
+            color: var(--gray);
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+        
+        /* Goals Section */
+        .goals-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .goal-item {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 1.5rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: var(--transition);
+        }
+        
+        .goal-item:hover {
+            border-color: rgba(201, 168, 76, 0.15);
+            background: rgba(201, 168, 76, 0.03);
+        }
+        
+        .goal-item .goal-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--gold);
+            opacity: 0.3;
+            line-height: 1;
+            min-width: 40px;
+        }
+        
+        .goal-item .goal-content h4 {
+            color: var(--white);
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+        
+        .goal-item .goal-content p {
+            color: var(--gray);
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .about-story {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .mv-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .values-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .goals-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mv-grid {
+                grid-template-columns: 1fr;
+            }
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            .goals-grid {
+                grid-template-columns: 1fr;
+            }
+            .goal-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header id="header">
+        <div class="container nav">
+            <div class="logo">
+                <span class="white">Hope</span><span class="gold">Holmes</span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html" class="btn btn-primary btn-sm">Book a Consult</a></li>
+            </ul>
+            <button class="mobile-toggle" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- ===== ABOUT PAGE ===== -->
+    <section class="about-page" style="padding: 8rem 0 5rem; min-height: 80vh;">
+        <div class="container">
+            <div class="section-title">
+                <h2>About <span class="gold">Hope Holmes</span></h2>
+                <p>Your partner in building an author brand that stands out.</p>
+            </div>
+
+            <!-- ===== ABOUT STORY ===== -->
+            <div class="about-story">
+                <div class="about-story-image">
+                    <img src="img/Hope Holmes.png" alt="Hope Holmes - Author Branding Specialist" />
+                </div>
+                <div class="about-story-content">
+                    <h3>Strategic. Creative. Results-driven.</h3>
+                    <p>
+                        Hope Holmes is a full-service Social Media Expert specializing in helping authors,
+                        writers, entrepreneurs, coaches, and personal brands establish, grow, and manage
+                        their social media presence.
+                    </p>
+                    <p>
+                        With a passion for storytelling and a keen eye for design, Hope provides complete
+                        social media solutions — from account setup and branding to content creation,
+                        engagement, and analytics.
+                    </p>
+                    <p>
+                        The business provides complete social media solutions, including account setup,
+                        branding, content creation, graphic design, content scheduling, audience engagement,
+                        growth strategies, analytics tracking, and ongoing social media management.
+                    </p>
+                    <div class="about-values" style="grid-template-columns: 1fr 1fr 1fr;">
+                        <div class="value"><i class="fas fa-bullseye"></i><span>Strategy</span></div>
+                        <div class="value"><i class="fas fa-paint-brush"></i><span>Creativity</span></div>
+                        <div class="value"><i class="fas fa-rocket"></i><span>Growth</span></div>
+                        <div class="value"><i class="fas fa-heart"></i><span>Passion</span></div>
+                        <div class="value"><i class="fas fa-handshake"></i><span>Integrity</span></div>
+                        <div class="value"><i class="fas fa-star"></i><span>Excellence</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== MISSION, VISION, VALUES ===== -->
+            <div class="mv-grid">
+                <div class="mv-card">
+                    <div class="mv-icon"><i class="fas fa-bullseye"></i></div>
+                    <h3>Our Mission</h3>
+                    <p>To empower authors and creators with a powerful social media presence that drives book sales, builds lasting brands, and creates meaningful connections with readers worldwide.</p>
+                </div>
+                <div class="mv-card">
+                    <div class="mv-icon"><i class="fas fa-eye"></i></div>
+                    <h3>Our Vision</h3>
+                    <p>To become the leading social media agency for authors worldwide, transforming how writers connect with readers and building a community where every author can thrive in the digital age.</p>
+                </div>
+                <div class="mv-card">
+                    <div class="mv-icon"><i class="fas fa-heart"></i></div>
+                    <h3>Our Promise</h3>
+                    <p>We promise to deliver exceptional results through creativity, integrity, and a genuine passion for helping authors succeed. Your success is our success.</p>
+                </div>
+            </div>
+
+            <!-- ===== CORE VALUES ===== -->
+            <div style="margin-top: 3rem;">
+                <h3 style="text-align: center; color: var(--gold); font-size: 1.8rem; margin-bottom: 0.5rem;">Our Core Values</h3>
+                <p style="text-align: center; color: var(--gray); max-width: 600px; margin: 0 auto 2rem;">The principles that guide everything we do.</p>
+                
+                <div class="values-grid">
+                    <div class="value-item">
+                        <i class="fas fa-lightbulb"></i>
+                        <h4>Creativity</h4>
+                        <p>We bring fresh, innovative ideas to every project, helping your brand stand out in a crowded digital space.</p>
+                    </div>
+                    <div class="value-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Integrity</h4>
+                        <p>We operate with honesty, transparency, and authenticity in everything we do. Your trust is our priority.</p>
+                    </div>
+                    <div class="value-item">
+                        <i class="fas fa-trophy"></i>
+                        <h4>Excellence</h4>
+                        <p>We strive for excellence in every deliverable, ensuring the highest quality content and strategy for your brand.</p>
+                    </div>
+                    <div class="value-item">
+                        <i class="fas fa-users"></i>
+                        <h4>Community</h4>
+                        <p>We believe in building genuine connections between authors and readers, fostering engaged and loyal communities.</p>
+                    </div>
+                    <div class="value-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h4>Empowerment</h4>
+                        <p>We empower authors with the knowledge, tools, and strategies they need to take control of their brand.</p>
+                    </div>
+                    <div class="value-item">
+                        <i class="fas fa-chart-line"></i>
+                        <h4>Growth</h4>
+                        <p>We are committed to continuous improvement and helping your brand grow and evolve with the digital landscape.</p>
+                    </div>
+                    <div class="value-item">
+                        <i class="fas fa-hand-holding-heart"></i>
+                        <h4>Passion</h4>
+                        <p>We are passionate about helping authors succeed. Your stories matter, and we're honored to help you share them.</p>
+                    </div>
+                    <div class="value-item">
+                        <i class="fas fa-globe"></i>
+                        <h4>Impact</h4>
+                        <p>We aim to create meaningful impact, helping authors reach new readers and make a lasting difference in the world.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== OUR GOALS ===== -->
+            <div style="margin-top: 4rem; background: var(--navy-light); padding: 3rem; border-radius: var(--radius-lg);">
+                <h3 style="text-align: center; color: var(--gold); font-size: 1.8rem; margin-bottom: 0.5rem;">Our Goals</h3>
+                <p style="text-align: center; color: var(--gray); max-width: 600px; margin: 0 auto 2rem;">What we aim to achieve for every author we work with.</p>
+                
+                <div class="goals-grid">
+                    <div class="goal-item">
+                        <div class="goal-number">01</div>
+                        <div class="goal-content">
+                            <h4>Build Author Brands</h4>
+                            <p>Help authors establish a powerful, recognizable brand that attracts readers and opens doors to new opportunities.</p>
+                        </div>
+                    </div>
+                    <div class="goal-item">
+                        <div class="goal-number">02</div>
+                        <div class="goal-content">
+                            <h4>Drive Book Sales</h4>
+                            <p>Create strategic social media campaigns that generate buzz, build anticipation, and drive book sales.</p>
+                        </div>
+                    </div>
+                    <div class="goal-item">
+                        <div class="goal-number">03</div>
+                        <div class="goal-content">
+                            <h4>Engage Readers</h4>
+                            <p>Build engaged communities of loyal readers who connect with your work and become lifelong fans.</p>
+                        </div>
+                    </div>
+                    <div class="goal-item">
+                        <div class="goal-number">04</div>
+                        <div class="goal-content">
+                            <h4>Simplify Social Media</h4>
+                            <p>Take the stress out of social media management so you can focus on what you do best — writing.</p>
+                        </div>
+                    </div>
+                    <div class="goal-item">
+                        <div class="goal-number">05</div>
+                        <div class="goal-content">
+                            <h4>Provide Data-Driven Results</h4>
+                            <p>Use analytics and insights to continuously improve strategies and deliver measurable results.</p>
+                        </div>
+                    </div>
+                    <div class="goal-item">
+                        <div class="goal-number">06</div>
+                        <div class="goal-content">
+                            <h4>Create Lasting Impact</h4>
+                            <p>Help authors leave a lasting legacy through their work, connecting with readers on a deeper level.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== CTA ===== -->
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="contact.html" class="btn btn-primary">Let's Work Together</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="white">Hope</span><span class="gold">Holmes</span>
+                    </div>
+                    <p>Social media management &amp; author branding. Elevate your platform.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Pages</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="services.html">Services</a>
+                    <a href="portfolio.html">Portfolio</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <a href="testimonials.html">Testimonials</a>
+                    <a href="pricing.html">Pricing</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="#">Blog</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Hope Holmes Agency · All rights reserved · Built with ♥ for authors</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

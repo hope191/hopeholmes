@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="img/Hope Holmes.png" />
+    <title>Hope Holmes · Services</title>
+    <meta name="description" content="Explore our complete social media solutions for authors and brands - from setup to strategy." />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="main.css" />
+    <style>
+        /* ============================================
+           SERVICES PAGE ENHANCED STYLES
+           ============================================ */
+        
+        .services-grid-enhanced {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
+        .service-card-enhanced {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .service-card-enhanced:hover {
+            transform: translateY(-8px);
+            border-color: rgba(201, 168, 76, 0.15);
+            background: rgba(201, 168, 76, 0.03);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .service-card-enhanced .service-image {
+            width: 100%;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            position: relative;
+            background: var(--navy-light);
+        }
+        
+        .service-card-enhanced .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .service-card-enhanced:hover .service-image img {
+            transform: scale(1.05);
+        }
+        
+        .service-card-enhanced .service-image .service-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, transparent 0%, rgba(10, 22, 40, 0.6) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .service-card-enhanced .service-image .service-overlay .icon-circle {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: rgba(10, 22, 40, 0.8);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--gold);
+            border: 2px solid rgba(201, 168, 76, 0.2);
+        }
+        
+        .service-card-enhanced .service-content {
+            padding: 1.8rem 1.8rem 2rem;
+        }
+        
+        .service-card-enhanced .service-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.4rem;
+            color: var(--white);
+        }
+        
+        .service-card-enhanced .service-content .service-subtitle {
+            font-size: 0.85rem;
+            color: var(--gold);
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+        }
+        
+        .service-card-enhanced .service-content p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+        
+        .service-card-enhanced .service-content .service-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .service-card-enhanced .service-content .service-features span {
+            background: var(--gold-glow);
+            color: var(--gold);
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 500;
+        }
+        
+        /* Process Section */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .process-step {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: var(--transition);
+        }
+        
+        .process-step:hover {
+            border-color: rgba(201, 168, 76, 0.1);
+            transform: translateY(-4px);
+        }
+        
+        .process-step .step-number {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gold-glow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+        
+        .process-step h4 {
+            color: var(--white);
+            margin-bottom: 0.3rem;
+        }
+        
+        .process-step p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .services-grid-enhanced {
+                grid-template-columns: 1fr 1fr;
+            }
+            .process-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .services-grid-enhanced {
+                grid-template-columns: 1fr;
+            }
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header id="header">
+        <div class="container nav">
+            <div class="logo">
+                <span class="white">Hope</span><span class="gold">Holmes</span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html" class="btn btn-primary btn-sm">Book a Consult</a></li>
+            </ul>
+            <button class="mobile-toggle" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- ===== SERVICES PAGE ===== -->
+    <section class="services-page" style="padding: 8rem 0 5rem; min-height: 80vh;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our <span class="gold">Services</span></h2>
+                <p>Complete social media solutions for authors and brands.</p>
+            </div>
+
+            <!-- Services Grid with Images -->
+            <div class="services-grid-enhanced">
+
+                <!-- Service 1: Social Media Setup -->
+                <div class="service-card-enhanced">
+                    <div class="service-image">
+                        <img src="img/Social Setup.png" alt="Social Media Setup" loading="lazy" />
+                        <div class="service-overlay">
+                            <div class="icon-circle"><i class="fas fa-user-plus"></i></div>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Social Media Setup</h3>
+                        <div class="service-subtitle">Get started the right way</div>
+                        <p>Professional account creation, profile optimization, and complete branding setup across all platforms. We ensure your profiles look polished and professional from day one.</p>
+                        <div class="service-features">
+                            <span>Account Creation</span>
+                            <span>Profile Optimization</span>
+                            <span>Branding Setup</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 2: Social Media Management -->
+                <div class="service-card-enhanced">
+                    <div class="service-image">
+                        <img src="img/Social Management.png" alt="Social Media Management" loading="lazy" />
+                        <div class="service-overlay">
+                            <div class="icon-circle"><i class="fas fa-calendar-check"></i></div>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Social Media Management</h3>
+                        <div class="service-subtitle">Consistent, engaging presence</div>
+                        <p>Daily posting, content scheduling, and active audience engagement to build a loyal community. We handle everything so you can focus on writing.</p>
+                        <div class="service-features">
+                            <span>Daily Posting</span>
+                            <span>Content Scheduling</span>
+                            <span>Audience Engagement</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 3: Content Creation -->
+                <div class="service-card-enhanced">
+                    <div class="service-image">
+                        <img src="img/Content Creation.png" alt="Content Creation" loading="lazy" />
+                        <div class="service-overlay">
+                            <div class="icon-circle"><i class="fas fa-pen-fancy"></i></div>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Content Creation</h3>
+                        <div class="service-subtitle">Captivating content that converts</div>
+                        <p>Professional captions, long-form content, story content, and compelling copywriting that captures your author voice and engages readers.</p>
+                        <div class="service-features">
+                            <span>Captions</span>
+                            <span>Long-form Content</span>
+                            <span>Story Content</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 4: Graphic Design -->
+                <div class="service-card-enhanced">
+                    <div class="service-image">
+                        <img src="img/Graphic Design.png" alt="Graphic Design" loading="lazy" />
+                        <div class="service-overlay">
+                            <div class="icon-circle"><i class="fas fa-paint-brush"></i></div>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Graphic Design</h3>
+                        <div class="service-subtitle">Visuals that stop the scroll</div>
+                        <p>Stunning posts, carousels, story graphics, and promotional materials that capture attention and build your brand identity.</p>
+                        <div class="service-features">
+                            <span>Posts</span>
+                            <span>Carousels</span>
+                            <span>Story Graphics</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 5: Author Branding -->
+                <div class="service-card-enhanced">
+                    <div class="service-image">
+                        <img src="img/Author Branding.png" alt="Author Branding" loading="lazy" />
+                        <div class="service-overlay">
+                            <div class="icon-circle"><i class="fas fa-user-tie"></i></div>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Author Branding</h3>
+                        <div class="service-subtitle">Build a brand that sells books</div>
+                        <p>Platform development, book promotion strategy, and reader engagement campaigns that establish you as a leading voice in your genre.</p>
+                        <div class="service-features">
+                            <span>Platform Development</span>
+                            <span>Book Promotion</span>
+                            <span>Reader Engagement</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 6: Strategy & Analytics -->
+                <div class="service-card-enhanced">
+                    <div class="service-image">
+                        <img src="img/Strategy & Analytics.png" alt="Strategy & Analytics" loading="lazy" />
+                        <div class="service-overlay">
+                            <div class="icon-circle"><i class="fas fa-chart-line"></i></div>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Strategy &amp; Analytics</h3>
+                        <div class="service-subtitle">Data-driven growth</div>
+                        <p>Growth planning, content strategy, performance tracking, and data-driven optimization to ensure your social media presence is always improving.</p>
+                        <div class="service-features">
+                            <span>Growth Planning</span>
+                            <span>Content Strategy</span>
+                            <span>Performance Tracking</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Process Section -->
+            <div style="margin-top: 4rem; background: var(--navy-light); padding: 3rem; border-radius: 24px;">
+                <h3 style="text-align: center; color: var(--gold); font-size: 1.8rem; margin-bottom: 2rem;">How It Works</h3>
+                <div class="process-grid">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h4>Discovery</h4>
+                        <p>We learn about your brand and goals</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h4>Strategy</h4>
+                        <p>We create a customized plan for you</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h4>Execution</h4>
+                        <p>We implement and manage your presence</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h4>Growth</h4>
+                        <p>We track, optimize, and scale results</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div style="text-align: center; margin-top: 2.5rem;">
+                <a href="contact.html" class="btn btn-primary">Ready to Get Started?</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="white">Hope</span><span class="gold">Holmes</span>
+                    </div>
+                    <p>Social media management &amp; author branding. Elevate your platform.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Pages</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="services.html">Services</a>
+                    <a href="portfolio.html">Portfolio</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <a href="testimonials.html">Testimonials</a>
+                    <a href="pricing.html">Pricing</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="#">Blog</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Hope Holmes Agency · All rights reserved · Built with ♥ for authors</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================
+    IMAGE ERROR HANDLING
+    ============================================ -->
+    <script>
+        (function() {
+            'use strict';
+
+            // Handle image loading errors with fallback
+            document.querySelectorAll('.service-card-enhanced .service-image img').forEach(function(img) {
+                img.addEventListener('error', function() {
+                    // Create fallback gradient with service name
+                    const card = this.closest('.service-card-enhanced');
+                    const title = card ? card.querySelector('h3')?.textContent || 'Service' : 'Service';
+                    const colors = ['#1a2a4a', '#0a1628', '#2a1a4a', '#1a1a3a'];
+                    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                    
+                    // Replace with a styled fallback
+                    this.style.display = 'none';
+                    const parent = this.parentElement;
+                    const fallback = document.createElement('div');
+                    fallback.style.cssText = `
+                        width: 100%;
+                        height: 100%;
+                        background: linear-gradient(135deg, ${randomColor}, var(--navy));
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 3rem;
+                        color: var(--gold);
+                        opacity: 0.3;
+                    `;
+                    fallback.innerHTML = `<i class="fas fa-image"></i>`;
+                    parent.appendChild(fallback);
+                });
+            });
+
+        })();
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>

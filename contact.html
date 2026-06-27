@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="img/Favicon.jpg" />
+    <title>Hope Holmes · Contact</title>
+    <meta name="description" content="Get in touch with Hope Holmes for a free consultation. Book a call or send a message to start growing your author brand." />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="main.css" />
+    <style>
+        /* ============================================
+           CONTACT PAGE STYLES
+           ============================================ */
+        
+        .contact-form .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .contact-form .form-group label {
+            display: block;
+            color: var(--gray);
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+        }
+        
+        .contact-form .form-group input,
+        .contact-form .form-group textarea {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--white);
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+        
+        .contact-form .form-group input::placeholder,
+        .contact-form .form-group textarea::placeholder {
+            color: var(--gray);
+        }
+        
+        .contact-form .form-group input:focus,
+        .contact-form .form-group textarea:focus {
+            outline: none;
+            border-color: rgba(201, 168, 76, 0.3);
+            background: rgba(255, 255, 255, 0.04);
+            box-shadow: 0 0 0 4px var(--gold-glow);
+        }
+        
+        .contact-form .form-group textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+        
+        .contact-form .form-group .error-message {
+            color: #e74c3c;
+            font-size: 0.8rem;
+            margin-top: 0.3rem;
+            display: none;
+        }
+        
+        .contact-form .form-group.error input,
+        .contact-form .form-group.error textarea {
+            border-color: #e74c3c;
+        }
+        
+        .contact-form .form-group.error .error-message {
+            display: block;
+        }
+        
+        .contact-form .form-success {
+            display: none;
+            background: rgba(46, 204, 113, 0.1);
+            border: 1px solid rgba(46, 204, 113, 0.2);
+            border-radius: var(--radius-sm);
+            padding: 1.5rem;
+            text-align: center;
+            margin-top: 1rem;
+        }
+        
+        .contact-form .form-success.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .contact-form .form-success i {
+            font-size: 3rem;
+            color: #2ecc71;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-form .form-success h4 {
+            color: #2ecc71;
+            margin-bottom: 0.3rem;
+        }
+        
+        .contact-form .form-success p {
+            color: var(--gray);
+        }
+        
+        .contact-form .btn {
+            width: 100%;
+        }
+        
+        .contact-form .btn.loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+        
+        .contact-form .btn.loading::after {
+            content: '';
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid transparent;
+            border-top-color: var(--navy);
+            border-radius: 50%;
+            animation: spin 0.8s ease infinite;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+        
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        /* Contact Info Enhancements */
+        .contact-info .info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            margin-bottom: 0.8rem;
+            transition: var(--transition);
+        }
+        
+        .contact-info .info-item:hover {
+            border-color: rgba(201, 168, 76, 0.1);
+            background: rgba(201, 168, 76, 0.02);
+        }
+        
+        .contact-info .info-item i {
+            color: var(--gold);
+            font-size: 1.2rem;
+            width: 24px;
+            text-align: center;
+        }
+        
+        .contact-info .info-item .info-text {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        
+        .contact-info .info-item .info-text strong {
+            color: var(--white);
+            font-weight: 600;
+        }
+        
+        /* Calendly Section */
+        .calendly-section {
+            background: var(--navy-light);
+            padding: 3rem;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .calendly-section h3 {
+            color: var(--gold);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .calendly-section p {
+            color: var(--gray);
+            max-width: 500px;
+            margin: 0 auto 2rem;
+        }
+        
+        .calendly-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        
+        .calendly-grid .calendly-step {
+            background: var(--navy);
+            padding: 1.5rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: var(--transition);
+        }
+        
+        .calendly-grid .calendly-step:hover {
+            border-color: rgba(201, 168, 76, 0.1);
+            transform: translateY(-4px);
+        }
+        
+        .calendly-grid .calendly-step i {
+            font-size: 1.8rem;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .calendly-grid .calendly-step span {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .calendly-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .calendly-grid {
+                grid-template-columns: 1fr;
+            }
+            .calendly-section {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header id="header">
+        <div class="container nav">
+            <div class="logo">
+                <span class="white">Hope</span><span class="gold">Holmes</span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+                <li><a href="contact.html" class="btn btn-primary btn-sm">Book a Consult</a></li>
+            </ul>
+            <button class="mobile-toggle" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- ===== CONTACT PAGE ===== -->
+    <section class="contact-page" style="padding: 8rem 0 5rem; min-height: 80vh;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Let's <span class="gold">Connect</span></h2>
+                <p>Book a consultation or send us a message.</p>
+            </div>
+
+            <div class="contact-grid">
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <h3 style="color: var(--gold); margin-bottom: 1.2rem; font-size: 1.2rem;">Send a Message</h3>
+                    
+                    <form id="contactForm" method="POST" action="send-email.php">
+                        <div class="form-group">
+                            <label for="name">Your Name <span style="color: #e74c3c;">*</span></label>
+                            <input type="text" id="name" name="name" placeholder="Enter your full name" required />
+                            <div class="error-message">Please enter your name</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address <span style="color: #e74c3c;">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email address" required />
+                            <div class="error-message">Please enter a valid email address</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number (optional)" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject <span style="color: #e74c3c;">*</span></label>
+                            <input type="text" id="subject" name="subject" placeholder="What is this about?" required />
+                            <div class="error-message">Please enter a subject</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message <span style="color: #e74c3c;">*</span></label>
+                            <textarea id="message" name="message" placeholder="Tell me about your project, goals, and how I can help..." rows="5" required></textarea>
+                            <div class="error-message">Please enter your message</div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" id="submitBtn">Send Message <i class="fas fa-paper-plane"></i></button>
+                        
+                        <div class="form-success" id="formSuccess">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>Message Sent Successfully!</h4>
+                            <p>Thank you for reaching out. I'll get back to you within 24 hours.</p>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div class="info-text">
+                            <strong>Email</strong><br />
+                            <span id="contactEmail">info.hopeholmes.io@gmail.com</span>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+
+                    <div class="faq-item">
+                        <h4>📘 Free Author Branding Ebook</h4>
+                        <p>Sign up for our newsletter and get "Author Branding 101" instantly delivered to your inbox.</p>
+                        <button class="btn btn-gold" style="margin-top: 1rem; padding: 0.7rem 2rem; font-size: 0.9rem;" id="subscribeBtn">Subscribe Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calendly Integration -->
+            <div class="calendly-section">
+                <h3>Book a Free Consultation</h3>
+                <p>Schedule a 30-minute discovery call to discuss your author brand and social media strategy.</p>
+                <div class="calendly-grid">
+                    <div class="calendly-step">
+                        <i class="fas fa-calendar-day"></i>
+                        <span>Choose a Date</span>
+                    </div>
+                    <div class="calendly-step">
+                        <i class="fas fa-clock"></i>
+                        <span>Pick a Time</span>
+                    </div>
+                    <div class="calendly-step">
+                        <i class="fas fa-video"></i>
+                        <span>Zoom Call</span>
+                    </div>
+                </div>
+                <a href="#" class="btn btn-primary" id="calendlyBtn">Schedule Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="white">Hope</span><span class="gold">Holmes</span>
+                    </div>
+                    <p>Social media management &amp; author branding. Elevate your platform.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Pages</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="services.html">Services</a>
+                    <a href="portfolio.html">Portfolio</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <a href="pricing.html">Pricing</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="#">Blog</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Hope Holmes Agency · All rights reserved · Built with ♥ for authors</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================
+    CONTACT FORM JAVASCRIPT
+    ============================================ -->
+    <script>
+        (function() {
+            'use strict';
+
+            // ============================================
+            // YOUR EMAIL ADDRESS - All form data goes here
+            // ============================================
+            const YOUR_EMAIL = 'info.hopeholmes.io@gmail.com';
+
+            // ============================================
+            // CONTACT FORM HANDLING
+            // ============================================
+            const contactForm = document.getElementById('contactForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const formSuccess = document.getElementById('formSuccess');
+            
+            // Update email display
+            const emailDisplay = document.getElementById('contactEmail');
+            if (emailDisplay) {
+                emailDisplay.textContent = YOUR_EMAIL;
+            }
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Reset error states
+                    const formGroups = this.querySelectorAll('.form-group');
+                    formGroups.forEach(function(group) {
+                        group.classList.remove('error');
+                    });
+                    
+                    // Get form data
+                    const name = document.getElementById('name').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const phone = document.getElementById('phone').value.trim();
+                    const subject = document.getElementById('subject').value.trim();
+                    const message = document.getElementById('message').value.trim();
+                    
+                    // Validation
+                    let isValid = true;
+                    
+                    if (!name) {
+                        document.getElementById('name').closest('.form-group').classList.add('error');
+                        isValid = false;
+                    }
+                    
+                    if (!email || !isValidEmail(email)) {
+                        document.getElementById('email').closest('.form-group').classList.add('error');
+                        isValid = false;
+                    }
+                    
+                    if (!subject) {
+                        document.getElementById('subject').closest('.form-group').classList.add('error');
+                        isValid = false;
+                    }
+                    
+                    if (!message) {
+                        document.getElementById('message').closest('.form-group').classList.add('error');
+                        isValid = false;
+                    }
+                    
+                    if (!isValid) {
+                        // Scroll to first error
+                        const firstError = this.querySelector('.form-group.error');
+                        if (firstError) {
+                            firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            firstError.querySelector('input, textarea')?.focus();
+                        }
+                        return;
+                    }
+                    
+                    // Show loading state
+                    submitBtn.classList.add('loading');
+                    submitBtn.textContent = 'Sending...';
+                    
+                    // Prepare email data
+                    const emailData = {
+                        to_email: YOUR_EMAIL,
+                        from_name: name,
+                        from_email: email,
+                        phone: phone,
+                        subject: subject,
+                        message: message
+                    };
+                    
+                    // Send email using multiple methods
+                    sendEmail(emailData);
+                });
+            }
+            
+            // ===== EMAIL SENDING FUNCTIONS =====
+            function sendEmail(data) {
+                // Try PHP method first (if available)
+                sendViaPHP(data);
+            }
+            
+            function sendViaPHP(data) {
+                // This will work if you have send-email.php on your server
+                const formData = new FormData();
+                formData.append('to_email', data.to_email);
+                formData.append('name', data.from_name);
+                formData.append('email', data.from_email);
+                formData.append('phone', data.phone || '');
+                formData.append('subject', data.subject);
+                formData.append('message', data.message);
+                
+                fetch('send-email.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(result) {
+                    if (result.success) {
+                        showSuccess();
+                    } else {
+                        // If PHP fails, try client-side method
+                        console.log('PHP method failed, trying client-side...');
+                        sendViaClientSide(data);
+                    }
+                })
+                .catch(function() {
+                    // If fetch fails, try client-side method
+                    console.log('PHP method unavailable, trying client-side...');
+                    sendViaClientSide(data);
+                });
+            }
+            
+            function sendViaClientSide(data) {
+                // Client-side email using mailto (opens email client)
+                const subject = encodeURIComponent(data.subject + ' - from ' + data.from_name);
+                const body = encodeURIComponent(
+                    'Name: ' + data.from_name + '\n' +
+                    'Email: ' + data.from_email + '\n' +
+                    'Phone: ' + (data.phone || 'Not provided') + '\n\n' +
+                    'Message:\n' + data.message + '\n\n' +
+                    '---\nThis message was sent from your website contact form.'
+                );
+                
+                const mailtoLink = 'mailto:' + data.to_email + '?subject=' + subject + '&body=' + body;
+                
+                // Try to open mail client
+                const win = window.open(mailtoLink, '_blank');
+                
+                if (!win || win.closed || typeof win.closed === 'undefined') {
+                    // If popup blocked, show copyable email
+                    showEmailCopyFallback(data);
+                } else {
+                    showSuccess();
+                }
+            }
+            
+            function showEmailCopyFallback(data) {
+                const email = data.to_email;
+                const subject = data.subject;
+                const body = 'Name: ' + data.from_name + '\nEmail: ' + data.from_email + '\n\nMessage: ' + data.message;
+                
+                // Show a modal with email details to copy
+                const modalHTML = `
+                    <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10,22,40,0.95); z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 2rem; backdrop-filter: blur(8px);">
+                        <div style="background: var(--navy-light); max-width: 500px; width: 100%; border-radius: 24px; padding: 2.5rem; border: 1px solid rgba(201,168,76,0.1); box-shadow: 0 20px 60px rgba(0,0,0,0.5);">
+                            <h3 style="color: var(--gold); margin-bottom: 1rem;">📧 Send Email</h3>
+                            <p style="color: var(--gray); margin-bottom: 1.5rem;">Please send your message directly to:</p>
+                            <div style="background: var(--navy); padding: 1rem; border-radius: 12px; border: 1px solid rgba(201,168,76,0.1); margin-bottom: 1.5rem; word-break: break-all;">
+                                <strong style="color: var(--gold);">${email}</strong>
+                            </div>
+                            <div style="background: var(--navy); padding: 1rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.04); margin-bottom: 1.5rem; max-height: 200px; overflow-y: auto; text-align: left;">
+                                <p style="color: var(--gray); font-size: 0.85rem; white-space: pre-wrap; word-break: break-word;"><strong>Subject:</strong> ${subject}\n\n<strong>Message:</strong>\n${body}</p>
+                            </div>
+                            <button onclick="this.closest('div[style*="position: fixed"]').remove()" class="btn btn-primary" style="width: 100%;">Got it! I'll send manually</button>
+                        </div>
+                    </div>
+                `;
+                
+                const modalContainer = document.createElement('div');
+                modalContainer.innerHTML = modalHTML;
+                document.body.appendChild(modalContainer);
+                
+                submitBtn.classList.remove('loading');
+                submitBtn.innerHTML = 'Send Message <i class="fas fa-paper-plane"></i>';
+            }
+            
+            function showSuccess() {
+                // Hide form, show success
+                const form = document.getElementById('contactForm');
+                const successDiv = document.getElementById('formSuccess');
+                
+                if (form) {
+                    form.querySelectorAll('input, textarea').forEach(function(input) {
+                        input.value = '';
+                    });
+                }
+                
+                if (successDiv) {
+                    successDiv.classList.add('show');
+                }
+                
+                submitBtn.classList.remove('loading');
+                submitBtn.innerHTML = 'Send Message <i class="fas fa-paper-plane"></i>';
+                
+                // Scroll to success message
+                if (successDiv) {
+                    successDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+                
+                // Reset form after 5 seconds
+                setTimeout(function() {
+                    if (successDiv) {
+                        successDiv.classList.remove('show');
+                    }
+                }, 8000);
+            }
+            
+            // ===== EMAIL VALIDATION =====
+            function isValidEmail(email) {
+                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            }
+            
+            // ===== NEWSLETTER SUBSCRIPTION =====
+            const subscribeBtn = document.getElementById('subscribeBtn');
+            if (subscribeBtn) {
+                subscribeBtn.addEventListener('click', function() {
+                    const email = prompt('Please enter your email address to subscribe:');
+                    if (email && isValidEmail(email)) {
+                        // Here you would typically send this to your newsletter service
+                        showNotification('Thank you for subscribing! Check your email for the free ebook.', 'success');
+                    } else if (email) {
+                        showNotification('Please enter a valid email address.', 'error');
+                    }
+                });
+            }
+            
+            // ===== CALENDLY BUTTON =====
+            const calendlyBtn = document.getElementById('calendlyBtn');
+            if (calendlyBtn) {
+                calendlyBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // Replace with your Calendly link
+                    const calendlyLink = 'https://calendly.com/your-username';
+                    window.open(calendlyLink, '_blank');
+                });
+            }
+            
+            // ===== NOTIFICATION SYSTEM =====
+            function showNotification(message, type) {
+                const existing = document.querySelector('.notification-toast');
+                if (existing) {
+                    existing.remove();
+                }
+                
+                const notification = document.createElement('div');
+                notification.className = 'notification-toast';
+                notification.style.cssText = `
+                    position: fixed;
+                    bottom: 30px;
+                    right: 30px;
+                    padding: 1rem 2rem;
+                    border-radius: 12px;
+                    color: white;
+                    font-weight: 500;
+                    z-index: 9999;
+                    max-width: 400px;
+                    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+                    animation: slideUp 0.5s ease;
+                    background: ${type === 'success' ? 'var(--gold)' : '#e74c3c'};
+                    color: ${type === 'success' ? 'var(--navy)' : 'white'};
+                `;
+                notification.textContent = message;
+                document.body.appendChild(notification);
+                
+                setTimeout(function() {
+                    notification.style.opacity = '0';
+                    notification.style.transform = 'translateY(20px)';
+                    notification.style.transition = 'all 0.5s ease';
+                    setTimeout(function() {
+                        notification.remove();
+                    }, 500);
+                }, 5000);
+            }
+            
+            // ============================================
+            // ADD SLIDE UP ANIMATION
+            // ============================================
+            const styleSheet = document.createElement('style');
+            styleSheet.textContent = `
+                @keyframes slideUp {
+                    from {
+                        opacity: 0;
+                        transform: translateY(20px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+            `;
+            document.head.appendChild(styleSheet);
+
+        })();
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
