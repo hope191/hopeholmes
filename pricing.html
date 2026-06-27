@@ -22,174 +22,145 @@
             font-size: 1.05rem;
         }
         
-        /* Packages Section */
-        .packages-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+        /* Service Pricing Section */
+        .service-pricing-block {
             margin-bottom: 4rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
         }
         
-        .package-card {
-            background: rgba(255, 255, 255, 0.02);
-            padding: 2.5rem 2rem;
-            border-radius: var(--radius-lg);
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            text-align: center;
-            transition: var(--transition);
+        .service-pricing-block:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
         }
         
-        .package-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(201, 168, 76, 0.1);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .package-card.featured {
-            border-color: rgba(201, 168, 76, 0.2);
-            background: rgba(201, 168, 76, 0.03);
-            position: relative;
-        }
-        
-        .package-card.featured::before {
-            content: '★ Most Popular';
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--gold);
-            color: var(--navy);
-            padding: 0.3rem 1.5rem;
-            border-radius: 30px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-        
-        .package-card .package-name {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--white);
-            margin-bottom: 0.3rem;
-        }
-        
-        .package-card .package-price {
-            font-size: 3.2rem;
-            font-weight: 800;
-            color: var(--gold);
-            margin: 0.5rem 0;
-        }
-        
-        .package-card .package-price span {
-            font-size: 1rem;
-            color: var(--gray);
-            font-weight: 400;
-        }
-        
-        .package-card .package-desc {
-            color: var(--gray);
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .package-card ul {
-            list-style: none;
-            text-align: left;
-            margin: 1.5rem 0 2rem;
-        }
-        
-        .package-card ul li {
-            padding: 0.5rem 0;
-            color: var(--gray);
-            font-size: 0.9rem;
+        .service-pricing-header {
             display: flex;
             align-items: center;
-            gap: 0.6rem;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(201, 168, 76, 0.1);
         }
         
-        .package-card ul li i {
+        .service-pricing-header .service-icon-large {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: var(--gold-glow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
             color: var(--gold);
-            font-size: 0.8rem;
+            flex-shrink: 0;
         }
         
-        .package-card .btn {
-            width: 100%;
-        }
-        
-        /* Individual Services Section */
-        .services-pricing {
-            margin-top: 3rem;
-            padding-top: 3rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.04);
-        }
-        
-        .services-pricing .section-label {
-            text-align: center;
-            color: var(--gold);
-            font-size: 1.8rem;
+        .service-pricing-header .service-title-group h3 {
+            color: var(--white);
+            font-size: 1.6rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
         }
         
-        .services-pricing .section-desc {
-            text-align: center;
+        .service-pricing-header .service-title-group p {
             color: var(--gray);
-            max-width: 600px;
-            margin: 0 auto 2.5rem;
+            font-size: 0.95rem;
         }
         
-        .service-price-grid {
+        .service-pricing-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
         }
         
-        .service-price-item {
+        .service-pricing-card {
             background: rgba(255, 255, 255, 0.02);
-            padding: 1.5rem;
-            border-radius: var(--radius-sm);
+            padding: 1.8rem 1.5rem;
+            border-radius: var(--radius-md);
             border: 1px solid rgba(255, 255, 255, 0.04);
             text-align: center;
             transition: var(--transition);
         }
         
-        .service-price-item:hover {
+        .service-pricing-card:hover {
+            transform: translateY(-6px);
             border-color: rgba(201, 168, 76, 0.1);
-            background: rgba(201, 168, 76, 0.02);
-            transform: translateY(-4px);
+            background: rgba(201, 168, 76, 0.03);
+            box-shadow: var(--shadow-sm);
         }
         
-        .service-price-item .service-icon {
-            font-size: 2rem;
+        .service-pricing-card.featured {
+            border-color: rgba(201, 168, 76, 0.2);
+            background: rgba(201, 168, 76, 0.03);
+            position: relative;
+        }
+        
+        .service-pricing-card.featured::before {
+            content: '★ Best Value';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gold);
+            color: var(--navy);
+            padding: 0.2rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+        }
+        
+        .service-pricing-card .tier-name {
+            font-size: 1.1rem;
+            font-weight: 700;
             color: var(--gold);
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-        
-        .service-price-item .service-name {
-            color: var(--white);
-            font-size: 1rem;
-            font-weight: 600;
             margin-bottom: 0.2rem;
         }
         
-        .service-price-item .service-price {
-            color: var(--gold);
-            font-size: 1.4rem;
-            font-weight: 700;
+        .service-pricing-card .tier-price {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--white);
+            margin: 0.3rem 0;
         }
         
-        .service-price-item .service-price span {
+        .service-pricing-card .tier-price span {
             font-size: 0.85rem;
             color: var(--gray);
             font-weight: 400;
         }
         
-        .service-price-item .service-desc {
+        .service-pricing-card .tier-desc {
             color: var(--gray);
             font-size: 0.8rem;
-            margin-top: 0.3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-pricing-card ul {
+            list-style: none;
+            text-align: left;
+            margin: 1rem 0 1.5rem;
+        }
+        
+        .service-pricing-card ul li {
+            padding: 0.3rem 0;
+            color: var(--gray);
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .service-pricing-card ul li i {
+            color: var(--gold);
+            font-size: 0.7rem;
+        }
+        
+        .service-pricing-card .btn {
+            width: 100%;
+            padding: 0.6rem 1.5rem;
+            font-size: 0.85rem;
         }
         
         /* FAQ Section */
@@ -220,10 +191,7 @@
         
         /* Responsive */
         @media (max-width: 1024px) {
-            .packages-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            .service-price-grid {
+            .service-pricing-grid {
                 grid-template-columns: 1fr 1fr;
             }
             .faq-grid {
@@ -232,13 +200,15 @@
         }
         
         @media (max-width: 768px) {
-            .packages-grid {
+            .service-pricing-grid {
                 grid-template-columns: 1fr;
             }
-            .service-price-grid {
-                grid-template-columns: 1fr;
+            .service-pricing-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
             }
-            .package-card.featured {
+            .service-pricing-card.featured {
                 order: -1;
             }
         }
@@ -275,105 +245,319 @@
                 <p>Flexible plans for every stage of your author journey.</p>
             </div>
 
-            <!-- ===== PACKAGES SECTION ===== -->
-            <div class="packages-grid">
-                <!-- Starter Package -->
-                <div class="package-card">
-                    <div class="package-name">Starter</div>
-                    <div class="package-price">$299 <span>/mo</span></div>
-                    <div class="package-desc">Perfect for new authors getting started</div>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Social Setup &amp; Branding</li>
-                        <li><i class="fas fa-check"></i> 10 Posts / Month</li>
-                        <li><i class="fas fa-check"></i> Basic Analytics</li>
-                        <li><i class="fas fa-check"></i> Email Support</li>
-                    </ul>
-                    <a href="contact.html" class="btn btn-outline">Get Started</a>
+            <!-- ===== SERVICE 1: SOCIAL SETUP & REPORT ===== -->
+            <div class="service-pricing-block">
+                <div class="service-pricing-header">
+                    <div class="service-icon-large"><i class="fas fa-chart-bar"></i></div>
+                    <div class="service-title-group">
+                        <h3>Social Media Setup &amp; Report</h3>
+                        <p>Complete social media audit, professional setup, and comprehensive reporting</p>
+                    </div>
                 </div>
-
-                <!-- Growth Package (Featured) -->
-                <div class="package-card featured">
-                    <div class="package-name">Growth</div>
-                    <div class="package-price">$599 <span>/mo</span></div>
-                    <div class="package-desc">Ideal for growing author brands</div>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Everything in Starter</li>
-                        <li><i class="fas fa-check"></i> 25 Posts / Month</li>
-                        <li><i class="fas fa-check"></i> Advanced Analytics</li>
-                        <li><i class="fas fa-check"></i> Priority Support</li>
-                        <li><i class="fas fa-check"></i> Content Strategy</li>
-                    </ul>
-                    <a href="contact.html" class="btn btn-primary">Get Started</a>
-                </div>
-
-                <!-- Premium Package -->
-                <div class="package-card">
-                    <div class="package-name">Premium</div>
-                    <div class="package-price">$999 <span>/mo</span></div>
-                    <div class="package-desc">Full-service management for established authors</div>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Everything in Growth</li>
-                        <li><i class="fas fa-check"></i> 50+ Posts / Month</li>
-                        <li><i class="fas fa-check"></i> Full Management</li>
-                        <li><i class="fas fa-check"></i> Dedicated Manager</li>
-                        <li><i class="fas fa-check"></i> Monthly Strategy Call</li>
-                    </ul>
-                    <a href="contact.html" class="btn btn-outline">Get Started</a>
+                <div class="service-pricing-grid">
+                    <div class="service-pricing-card">
+                        <div class="tier-name">Essential</div>
+                        <div class="tier-price">$500 <span>one-time</span></div>
+                        <div class="tier-desc">Complete setup and basic reporting</div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Full Social Media Audit</li>
+                            <li><i class="fas fa-check"></i> 3 Platform Setup</li>
+                            <li><i class="fas fa-check"></i> Profile Optimization</li>
+                            <li><i class="fas fa-check"></i> Branding &amp; Visual Identity</li>
+                            <li><i class="fas fa-check"></i> Content Calendar (30 Days)</li>
+                            <li><i class="fas fa-check"></i> Basic Analytics Report</li>
+                            <li><i class="fas fa-check"></i> Hashtag Strategy</li>
+                            <li><i class="fas fa-check"></i> Bio &amp; Description Writing</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-outline btn-sm">Get Started</a>
+                    </div>
+                    <div class="service-pricing-card featured">
+                        <div class="tier-name">Professional</div>
+                        <div class="tier-price">$850 <span>one-time</span></div>
+                        <div class="tier-desc">Comprehensive setup with detailed reporting</div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Everything in Essential</li>
+                            <li><i class="fas fa-check"></i> 5 Platform Setup</li>
+                            <li><i class="fas fa-check"></i> Advanced Profile Optimization</li>
+                            <li><i class="fas fa-check"></i> Complete Brand Identity Package</li>
+                            <li><i class="fas fa-check"></i> Content Calendar (60 Days)</li>
+                            <li><i class="fas fa-check"></i> Detailed Analytics Report</li>
+                            <li><i class="fas fa-check"></i> Competitor Analysis</li>
+                            <li><i class="fas fa-check"></i> Content Templates &amp; Guidelines</li>
+                            <li><i class="fas fa-check"></i> Monthly Strategy Recommendations</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary btn-sm">Get Started</a>
+                    </div>
+                    <div class="service-pricing-card">
+                        <div class="tier-name">Premium</div>
+                        <div class="tier-price">$1,200 <span>one-time</span></div>
+                        <div class="tier-desc">Full-scale setup with premium reporting suite</div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Everything in Professional</li>
+                            <li><i class="fas fa-check"></i> All Platforms Setup</li>
+                            <li><i class="fas fa-check"></i> Premium Profile Optimization</li>
+                            <li><i class="fas fa-check"></i> Complete Brand Identity Package</li>
+                            <li><i class="fas fa-check"></i> Content Calendar (90 Days)</li>
+                            <li><i class="fas fa-check"></i> Premium Analytics Dashboard</li>
+                            <li><i class="fas fa-check"></i> In-Depth Competitor Analysis</li>
+                            <li><i class="fas fa-check"></i> Custom Content Templates</li>
+                            <li><i class="fas fa-check"></i> 3-Month Growth Strategy Plan</li>
+                            <li><i class="fas fa-check"></i> Performance Benchmarks</li>
+                            <li><i class="fas fa-check"></i> 30-Minute Strategy Call</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-outline btn-sm">Get Started</a>
+                    </div>
                 </div>
             </div>
 
-            <!-- ===== INDIVIDUAL SERVICES PRICING ===== -->
-            <div class="services-pricing">
-                <div class="section-label">Individual Services</div>
-                <div class="section-desc">Choose individual services to build a custom package that fits your needs.</div>
-
-                <div class="service-price-grid">
-                    <!-- Service 1: Social Setup -->
-                    <div class="service-price-item">
-                        <span class="service-icon"><i class="fas fa-user-plus"></i></span>
-                        <div class="service-name">Social Setup</div>
-                        <div class="service-price">$99 <span>one-time</span></div>
-                        <div class="service-desc">Account creation, profile optimization &amp; branding</div>
+            <!-- ===== SERVICE 2: SOCIAL MANAGEMENT ===== -->
+            <div class="service-pricing-block">
+                <div class="service-pricing-header">
+                    <div class="service-icon-large"><i class="fas fa-calendar-check"></i></div>
+                    <div class="service-title-group">
+                        <h3>Social Media Management</h3>
+                        <p>Daily posting, content scheduling, and active audience engagement</p>
                     </div>
-
-                    <!-- Service 2: Social Management -->
-                    <div class="service-price-item">
-                        <span class="service-icon"><i class="fas fa-calendar-check"></i></span>
-                        <div class="service-name">Social Management</div>
-                        <div class="service-price">$299 <span>/mo</span></div>
-                        <div class="service-desc">Daily posting, scheduling &amp; engagement</div>
+                </div>
+                <div class="service-pricing-grid">
+                    <div class="service-pricing-card">
+                        <div class="tier-name">Starter</div>
+                        <div class="tier-price">$199 <span>/mo</span></div>
+                        <div class="tier-desc">Basic management for new brands</div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> 1 Platform</li>
+                            <li><i class="fas fa-check"></i> 10 Posts / Month</li>
+                            <li><i class="fas fa-check"></i> Basic Engagement</li>
+                            <li><i class="fas fa-check"></i> Monthly Reporting</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-outline btn-sm">Get Started</a>
                     </div>
-
-                    <!-- Service 3: Content Creation -->
-                    <div class="service-price-item">
-                        <span class="service-icon"><i class="fas fa-pen-fancy"></i></span>
-                        <div class="service-name">Content Creation</div>
-                        <div class="service-price">$199 <span>/mo</span></div>
-                        <div class="service-desc">Captions, long-form content &amp; copywriting</div>
+                    <div class="service-pricing-card featured">
+                        <div class="tier-name">Growth</div>
+                        <div class="tier-price">$399 <span>/mo</span></div>
+                        <div class="tier-desc">Full management for growing brands</div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> 3 Platforms</li>
+                            <li><i class="fas fa-check"></i> 25 Posts / Month</li>
+                            <li><i class="fas fa-check"></i> Advanced Engagement</li>
+                            <li><i class="fas fa-check"></i> Weekly Reporting</li>
+                            <li><i class="fas fa-check"></i> Community Management</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary btn-sm">Get Started</a>
                     </div>
-
-                    <!-- Service 4: Graphic Design -->
-                    <div class="service-price-item">
-                        <span class="service-icon"><i class="fas fa-paint-brush"></i></span>
-                        <div class="service-name">Graphic Design</div>
-                        <div class="service-price">$249 <span>/mo</span></div>
-                        <div class="service-desc">Posts, carousels, story graphics &amp; more</div>
+                    <div class="service-pricing-card">
+                        <div class="tier-name">Premium</div>
+                        <div class="tier-price">$699 <span>/mo</span></div>
+                        <div class="tier-desc">Complete management for established brands</div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> All Platforms</li>
+                            <li><i class="fas fa-check"></i> 50+ Posts / Month</li>
+                            <li><i class="fas fa-check"></i> Premium Engagement</li>
+                            <li><i class="fas fa-check"></i> Real-Time Reporting</li>
+                            <li><i class="fas fa-check"></i> Dedicated Account Manager</li>
+                            <li><i class="fas fa-check"></i> Crisis Management</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-outline btn-sm">Get Started</a>
                     </div>
+                </div>
+            </div>
 
-                    <!-- Service 5: Author Branding -->
-                    <div class="service-price-item">
-                        <span class="service-icon"><i class="fas fa-user-tie"></i></span>
-                        <div class="service-name">Author Branding</div>
-                        <div class="service-price">$349 <span>/mo</span></div>
-                        <div class="service-desc">Platform development &amp; book promotion</div>
+            <!-- ===== SERVICE 3: CONTENT CREATION ===== -->
+            <div class="service-pricing-block">
+                <div class="service-pricing-header">
+                    <div class="service-icon-large"><i class="fas fa-pen-fancy"></i></div>
+                    <div class="service-title-group">
+                        <h3>Content Creation</h3>
+                        <p>Captions, long-form content, story content, and compelling copywriting</p>
                     </div>
+                </div>
+                <div class="service-pricing-grid">
+                    <div class="service-pricing-card">
+                        <div class="tier-name">Starter</div>
+                        <div class="tier-price">$149 <span>/mo</span></div>
+                        <div class="tier-desc">Basic content for new authors</div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> 10 Captions / Month</li>
+                            <li><i class="fas fa-check"></i> 2 Story Contents / Week</li>
+                            <li><i class="fas fa-check"></i> Basic Copywriting</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-outline btn-sm">Get Started</a>
+                    </div>
+                    <div class="service-pricing-card featured">
+                        <div class="tier-name">Growth</div>
+                        <div class="tier-price">$299 <span>/mo</span></div>
+                        <div class="tier-desc">Comprehensive content creation</div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> 25 Captions / Month</li>
+                            <li><i class="fas fa-check"></i> 5 Story Contents / Week</li>
+                            <li><i class="fas fa-check"></i> Advanced Copywriting</li>
+                            <li><i class="fas fa-check"></i> Blog Content (2/mo)</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary btn-sm">Get Started</a>
+                    </div>
+                    <div class="service-pricing-card">
+                        <div class="tier-name">Premium</div>
+                        <div class="tier-price">$499 <span>/mo</span></div>
+                        <div class="tier-desc">Full content creation suite</div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> 50+ Captions / Month</li>
+                            <li><i class="fas fa-check"></i> 10 Story Contents / Week</li>
+                            <li><i class="fas fa-check"></i> Premium Copywriting</li>
+                            <li><i class="fas fa-check"></i> Blog Content (4/mo)</li>
+                            <li><i class="fas fa-check"></i> Newsletter Content</li>
+                            <li><i class="fas fa-check"></i> Content Strategy</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-outline btn-sm">Get Started</a>
+                    </div>
+                </div>
+            </div>
 
-                    <!-- Service 6: Strategy & Analytics -->
-                    <div class="service-price-item">
-                        <span class="service-icon"><i class="fas fa-chart-line"></i></span>
-                        <div class="service-name">Strategy &amp; Analytics</div>
-                        <div class="service-price">$199 <span>/mo</span></div>
-                        <div class="service-desc">Growth planning, content strategy &amp; tracking</div>
+            <!-- ===== SERVICE 4: GRAPHIC DESIGN ===== -->
+            <div class="service-pricing-block">
+                <div class="service-pricing-header">
+                    <div class="service-icon-large"><i class="fas fa-paint-brush"></i></div>
+                    <div class="service-title-group">
+                        <h3>Graphic Design</h3>
+                        <p>Stunning posts, carousels, story graphics, and promotional materials</p>
+                    </div>
+                </div>
+                <div class="service-pricing-grid">
+                    <div class="service-pricing-card">
+                        <div class="tier-name">Starter</div>
+                        <div class="tier-price">$199 <span>/mo</span></div>
+                        <div class="tier-desc">Basic design for new brands</div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> 8 Posts / Month</li>
+                            <li><i class="fas fa-check"></i> 2 Story Graphics / Week</li>
+                            <li><i class="fas fa-check"></i> Basic Templates</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-outline btn-sm">Get Started</a>
+                    </div>
+                    <div class="service-pricing-card featured">
+                        <div class="tier-name">Growth</div>
+                        <div class="tier-price">$399 <span>/mo</span></div>
+                        <div class="tier-desc">Comprehensive design package</div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> 20 Posts / Month</li>
+                            <li><i class="fas fa-check"></i> 5 Carousels / Month</li>
+                            <li><i class="fas fa-check"></i> 5 Story Graphics / Week</li>
+                            <li><i class="fas fa-check"></i> Custom Templates</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary btn-sm">Get Started</a>
+                    </div>
+                    <div class="service-pricing-card">
+                        <div class="tier-name">Premium</div>
+                        <div class="tier-price">$599 <span>/mo</span></div>
+                        <div class="tier-desc">Full design suite</div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> 40+ Posts / Month</li>
+                            <li><i class="fas fa-check"></i> 10 Carousels / Month</li>
+                            <li><i class="fas fa-check"></i> 10 Story Graphics / Week</li>
+                            <li><i class="fas fa-check"></i> Premium Templates</li>
+                            <li><i class="fas fa-check"></i> Promotional Materials</li>
+                            <li><i class="fas fa-check"></i> Brand Style Guide</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-outline btn-sm">Get Started</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== SERVICE 5: AUTHOR BRANDING ===== -->
+            <div class="service-pricing-block">
+                <div class="service-pricing-header">
+                    <div class="service-icon-large"><i class="fas fa-user-tie"></i></div>
+                    <div class="service-title-group">
+                        <h3>Author Branding</h3>
+                        <p>Platform development, book promotion strategy, and reader engagement</p>
+                    </div>
+                </div>
+                <div class="service-pricing-grid">
+                    <div class="service-pricing-card">
+                        <div class="tier-name">Starter</div>
+                        <div class="tier-price">$299 <span>/mo</span></div>
+                        <div class="tier-desc">Basic author platform development</div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Author Profile Setup</li>
+                            <li><i class="fas fa-check"></i> Basic Book Promotion</li>
+                            <li><i class="fas fa-check"></i> Monthly Strategy</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-outline btn-sm">Get Started</a>
+                    </div>
+                    <div class="service-pricing-card featured">
+                        <div class="tier-name">Growth</div>
+                        <div class="tier-price">$499 <span>/mo</span></div>
+                        <div class="tier-desc">Complete author brand development</div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Author Platform Development</li>
+                            <li><i class="fas fa-check"></i> Book Promotion Strategy</li>
+                            <li><i class="fas fa-check"></i> Reader Engagement Campaigns</li>
+                            <li><i class="fas fa-check"></i> Weekly Strategy Calls</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary btn-sm">Get Started</a>
+                    </div>
+                    <div class="service-pricing-card">
+                        <div class="tier-name">Premium</div>
+                        <div class="tier-price">$799 <span>/mo</span></div>
+                        <div class="tier-desc">Full author brand management</div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Complete Platform Development</li>
+                            <li><i class="fas fa-check"></i> Advanced Book Promotion</li>
+                            <li><i class="fas fa-check"></i> Premium Reader Engagement</li>
+                            <li><i class="fas fa-check"></i> Weekly Strategy Calls</li>
+                            <li><i class="fas fa-check"></i> Media Kit Development</li>
+                            <li><i class="fas fa-check"></i> Speaking &amp; Event Strategy</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-outline btn-sm">Get Started</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== SERVICE 6: STRATEGY & ANALYTICS ===== -->
+            <div class="service-pricing-block">
+                <div class="service-pricing-header">
+                    <div class="service-icon-large"><i class="fas fa-chart-line"></i></div>
+                    <div class="service-title-group">
+                        <h3>Strategy &amp; Analytics</h3>
+                        <p>Growth planning, content strategy, performance tracking, and optimization</p>
+                    </div>
+                </div>
+                <div class="service-pricing-grid">
+                    <div class="service-pricing-card">
+                        <div class="tier-name">Starter</div>
+                        <div class="tier-price">$149 <span>/mo</span></div>
+                        <div class="tier-desc">Basic analytics and reporting</div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Monthly Analytics Report</li>
+                            <li><i class="fas fa-check"></i> Basic Performance Tracking</li>
+                            <li><i class="fas fa-check"></i> Monthly Strategy Session</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-outline btn-sm">Get Started</a>
+                    </div>
+                    <div class="service-pricing-card featured">
+                        <div class="tier-name">Growth</div>
+                        <div class="tier-price">$299 <span>/mo</span></div>
+                        <div class="tier-desc">Comprehensive analytics and strategy</div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Weekly Analytics Reports</li>
+                            <li><i class="fas fa-check"></i> Advanced Performance Tracking</li>
+                            <li><i class="fas fa-check"></i> Content Strategy Development</li>
+                            <li><i class="fas fa-check"></i> Weekly Strategy Sessions</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary btn-sm">Get Started</a>
+                    </div>
+                    <div class="service-pricing-card">
+                        <div class="tier-name">Premium</div>
+                        <div class="tier-price">$499 <span>/mo</span></div>
+                        <div class="tier-desc">Full analytics and strategy suite</div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Real-Time Analytics Dashboard</li>
+                            <li><i class="fas fa-check"></i> Premium Performance Tracking</li>
+                            <li><i class="fas fa-check"></i> Comprehensive Content Strategy</li>
+                            <li><i class="fas fa-check"></i> Weekly Strategy Sessions</li>
+                            <li><i class="fas fa-check"></i> Competitor Analysis</li>
+                            <li><i class="fas fa-check"></i> ROI Tracking &amp; Optimization</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-outline btn-sm">Get Started</a>
                     </div>
                 </div>
             </div>
